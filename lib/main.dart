@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(App());
+import 'common/adjustable_counter.dart';
 
-class App extends StatelessWidget {
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,16 +35,13 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body:
-        Center(
-          child:
-            Text(
-              "Hello World!",
-              style: new TextStyle(
-                fontSize: 30.0,
-                color: Colors.black,
-              ),
-            )
-        )
+        Column(children: <AdjustableCounter> [
+          AdjustableCounter(counterStart: 40),
+          AdjustableCounter(counterStart: 30),
+          AdjustableCounter(counterStart: 20),
+          AdjustableCounter(counterStart: 10),
+        ],
+      ),
     );
   }
 }
